@@ -388,7 +388,38 @@
     </div>
 </footer>
 <!-- End footer -->
-
+<div id="webchat"/>
+<script src="https://storage.googleapis.com/mrbot-cdn/webchat-0.5.8.js"></script>
+<script>
+    WebChat.default.init({
+        selector: "#webchat",
+        initPayload: "/greet",
+        interval: 1000, // 1000 ms between each message
+        // customData: {"userId": "123"}, // arbitrary custom data. Stay minimal as this will be added to the socket
+        socketUrl: "http://localhost:5555",
+        socketPath: "/socket.io/",
+        title: "Interview Me",
+        subtitle: "NCP Bot",
+        inputTextFieldHint: "Type a message...",
+        connectingText: "Waiting for server...",
+        hideWhenNotConnected: true,
+        fullScreenMode: false,
+        showFullScreenButton: false,
+        profileAvatar: "images/webchat-bot.png",
+        // openLauncherImage: 'myCustomOpenImage.png',
+        // closeLauncherImage: 'myCustomCloseImage.png',
+        displayUnreadCount: true, // --> [view](./assets/unread_count_pastille.png)
+        params: {
+            images: {
+                dims: {
+                    width: 300,
+                    height: 200,
+                }
+            },
+            storage: "session"
+        },
+    })
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="js/scripts.min.js"></script>
 </body>
